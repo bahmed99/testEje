@@ -1,0 +1,165 @@
+.App {
+  text-align: center;
+}
+
+.container {
+  width: 65%;
+  
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.btncommencer {
+  color: #f50057;
+  background-color:#060606 ;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border-color: #060606;
+
+}
+
+.names {
+  justify-content: center;
+  padding: 60px;
+  align-items: center;
+  border: 3px solid #fff;
+  border-radius: 24px;
+}
+
+
+.scontainer{
+  margin: 20px; 
+}
+
+.btn {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.btnp {
+  color: white;  
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  height: 100px;
+  width: 120px;
+  background-color: #77b300; 
+  opacity: 1;
+}
+
+.btnp:hover{
+  opacity:0.5;
+}
+
+
+
+.btne {
+  color: white;  
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  width: 120px;
+  background-color: #f80;
+}
+
+.btna {
+  color: white;  
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  width: 120px;
+  background-color: #c00;
+}
+
+.last-container {
+  display: inline-flex;
+  border-radius: 4px;
+  margin-top: 30px;
+  
+  
+}
+
+.btnend {
+  font-size: 1rem;
+  color: #f50057;
+  background-color:#060606 ;
+  cursor: pointer;
+  padding: 14px;
+  border-radius: 4px;
+  border: 1px solid rgba(245, 0, 87, 0.5);
+  border-radius: 4px;
+  font-size: 15px;
+  font-style: italic;
+}
+
+
+.btnmiddle{
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.btnmiddle:hover{
+  border-width: 2px;
+} 
+.btnright:hover{
+  border-width: 2px;
+} 
+.btnleft:hover{
+  border-width: 2px;
+} 
+
+.btnright{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.btnleft{
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+h4 {
+  color: white;
+  font-size: 28px;
+}
+
+.affichage {
+  background-color: #5a1b3b;
+  padding: 10px;
+  margin: 20px;
+  position: relative;
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  flex-direction: column;
+  min-width: 0;
+}
+.container-affichage{
+  display: flex;
+  justify-content: space-around;
+}
+
+.type{
+    width: 15%;
+    padding-right: 15px;
+    padding-left: 15px;
+    color: white;
+}
+
+h5{
+  background-color: #555;
+  border-color: #555;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  width: auto;
+  font-size:12pt;
+}
+
+h3{
+  opacity: 0.5;
+  font-family: cursive;
+}
+
