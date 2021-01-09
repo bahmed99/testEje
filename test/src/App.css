@@ -47,15 +47,11 @@
   height: 100px;
   width: 120px;
   background-color: #77b300; 
-  opacity: 1;
-}
-
-.btnp:hover{
-  opacity:0.5;
+  
 }
 
 
-
+  
 .btne {
   color: white;  
   border: 1px solid transparent;

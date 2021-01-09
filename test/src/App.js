@@ -109,6 +109,36 @@ function AfficherPresent() {
   setT('none');}
   setP('contents')
 }
+var buttonp = document.getElementById("my-buttonp");
+var buttone = document.getElementById("my-buttone");
+var buttona = document.getElementById("my-buttona");
+function ChangeOpacityPresent(){
+  if(com)
+  buttonp.style.opacity=0.5 ; 
+}
+function ChangeOpacityPresent1(){
+  if(com)
+  buttonp.style.opacity=1 ; 
+}
+
+function ChangeOpacityExclu(){
+  if(com)
+  buttone.style.opacity=0.5 ; 
+}
+function ChangeOpacityExclu1(){
+  if(com)
+  buttone.style.opacity=1 ; 
+}
+
+function ChangeOpacityAbscent(){
+  if(com)
+  buttona.style.opacity=0.5 ; 
+}
+function ChangeOpacityAbscent1(){
+  if(com)
+  buttona.style.opacity=1 ; 
+}
+
   return (
     <div className="App">
       <div className="container">
@@ -120,13 +150,13 @@ function AfficherPresent() {
             <h4>{names}</h4>
           </div>
           <div className="btn" >
-            <button disabled={!com} className="btnp" style={{opacity: com ? 1 : 0.5 , cursor: com ? 'pointer': ''}} onClick ={SetPresent} >
+            <button disabled={!com} onMouseOver={ChangeOpacityPresent} onMouseOut={ChangeOpacityPresent1} id="my-buttonp" style={{opacity: com ? 1 : 0.5 , cursor: com ? 'pointer': ''}} onClick ={SetPresent} className="btnp " >
               <span>Présent</span>
             </button>
-            <button disabled={!com} style={{opacity: com ? 1 : 0.5 , cursor: com ? 'pointer': ''}} onClick ={SetExclu} className="btne">
+            <button disabled={!com} onMouseOver={ChangeOpacityExclu} onMouseOut={ChangeOpacityExclu1} id="my-buttone" style={{opacity: com ? 1 : 0.5 , cursor: com ? 'pointer': ''}} onClick ={SetExclu} className="btne">
               <span>Exclu</span>
             </button>
-            <button disabled={!com} style={{opacity: com ? 1 : 0.5 , cursor: com ? 'pointer': ''}}  onClick ={SetAbscent} className="btna">
+            <button disabled={!com} onMouseOver={ChangeOpacityAbscent} onMouseOut={ChangeOpacityAbscent1} id="my-buttona" style={{opacity: com ? 1 : 0.5 , cursor: com ? 'pointer': ''}}  onClick ={SetAbscent} className="btna">
               <span>Abscent</span>
             </button>
           </div>
