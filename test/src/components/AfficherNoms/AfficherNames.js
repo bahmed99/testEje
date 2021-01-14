@@ -4,7 +4,7 @@ import './AfficherNoms.css'
 function AfficherNames(props) {
     return (
         <div className="names">
-            <ButtonCommencer text="COMMENCER" Start={props.start} displayBtnCommencer={props.ok} /> 
+            <ButtonCommencer text="COMMENCER" Start={props.start} displayBtnCommencer={props.displayBtnCommencer} /> 
             <h4>{props.names}</h4>
           </div>
     )

@@ -1,14 +1,9 @@
 import './App.css';
 import {useState} from 'react' ;
-import ButtonAbscent from './components/Buttons/ButtonsBottom/ButtonAbscent';
-import ButtonPresent from './components/Buttons/ButtonsBottom/ButtonPresent';
-import ButtonAjouterPresent from './components/Buttons/ButtonsAjouter/ButtonAjouterPresent';
-import ButtonAjouterExclu from './components/Buttons/ButtonsAjouter/ButtonAjouterExclu';
-import ButtonAjouterAbscent from './components/Buttons/ButtonsAjouter/ButtonAjouterAbscent';
-import ListPresent from './components/List/ListPresent';
-import ListTous from './components/List/ListTous';
-import ListAbscent from './components/List/ListAbscent';
 import AfficherNames from './components/AfficherNoms/AfficherNames';
+import ListEtudiant from './components/List/ListEtudiant';
+import ButtonLast from './components/Buttons/ButtonLast';
+import ButtonsAllAjouter from './components/Buttons/ButtonsAjouter/ButtonsAllAjouter';
 
 
 
@@ -21,15 +16,15 @@ function App() {
   const [abscent,setAbscent]=useState([]) ; 
   const [tous,setTous]=useState([]) ; 
   const [count,setCount]=useState(0); 
-  const [ok,setOk]=useState(''); 
-  const [ok1,setOk1]=useState(''); 
-  const [a,setA]=useState('none'); 
-  const [p,setP]=useState('none'); 
-  const [t,setT]=useState('contents'); 
+  const [displayBtnCommencer,setDisplayBtnCommencer]=useState(''); 
+  const [displayBlocNames,setDisplayBlocNames]=useState(''); 
+  const [displayListAbscent,setDisplayListAbscent]=useState('none'); 
+  const [displayListPresent,setDisplayListPresent]=useState('none'); 
+  const [displayListTous,setDisplayListTous]=useState('contents'); 
 
   function Setnames() {
     setCom(true) ; 
-    setOk('none');
+    setDisplayBtnCommencer('none');
     setNames(nom[count]) ;
     setCount(count + 1)
   }
@@ -44,7 +39,7 @@ function App() {
       setNames(nom[count]) ; 
     }
       else {
-        setOk1('none');
+        setDisplayBlocNames('none');
       }
   }
 
@@ -58,7 +53,7 @@ function App() {
         setNames(nom[count]) ;
       }
         else {
-          setOk1('none');
+          setDisplayBlocNames('none');
         }
   }
 
@@ -70,51 +65,40 @@ function App() {
         setNames(nom[count]) ;
       }
         else {
-          setOk1('none');
+          setDisplayBlocNames('none');
         }
   }
 
 function AfficherTous() {
-  if (a!=='none') {
-  setA('none'); }
-  if (p!=='none'){
-  setP('none');}
-  setT('contents');
+  if (displayListAbscent!=='none') {
+  setDisplayListAbscent('none'); }
+  if (displayListPresent!=='none'){
+  setDisplayListPresent('none');}
+  setDisplayListTous('contents');
 }
 
 function AfficherAbscent() {
-  if (t!=='none') {
-  setT('none'); }
-  if (p!=='none'){
-  setP('none');}
-  setA('contents');
+  if (displayListTous!=='none') {
+  setDisplayListTous('none'); }
+  if (displayListPresent!=='none'){
+  setDisplayListPresent('none');}
+  setDisplayListAbscent('contents');
 }
 function AfficherPresent() {
-  if(a !=='none') {
-  setA('none');}
-  if (t !=='none') {
-  setT('none');}
-  setP('contents')
+  if(displayListAbscent!=='none') {
+  setDisplayListAbscent('none');}
+  if (displayListTous !=='none') {
+  setDisplayListTous('none');}
+  setDisplayListPresent('contents')
 }
   return (
     <div className="App">
-        <div style={{display:ok1}}>
-          <AfficherNames names={names} start ={Setnames} ok={ok}/>
-          <div className="btn" > 
-            <ButtonAjouterPresent  text="Présent" com={com} disabled={!com} Start={SetPresent}/>
-            <ButtonAjouterExclu  text="Exclu" com={com} disabled={!com} Start={SetExclu}  />
-            <ButtonAjouterAbscent  text="Abscent" com={com} disabled={!com} Start={SetAbscent}  />
-          </div>
+        <div style={{display:displayBlocNames}}>
+          <AfficherNames names={names} start ={Setnames} displayBtnCommencer={displayBtnCommencer}/>
+          <ButtonsAllAjouter com={com}  SetPresent={SetPresent} SetExclu={SetExclu} SetAbscent={SetAbscent} /> 
         </div>
-
-        <div className="last-container">
-            <ButtonAbscent  text="TOUS" Start={AfficherTous} /> 
-            <ButtonAbscent  text="ABSCENT" Start={AfficherAbscent} /> 
-            <ButtonPresent  text="PRESENT" Start={AfficherPresent} /> 
-        </div>
-        <ListTous t={t} tous={tous} />
-        <ListPresent p={p} present={present} /> 
-        <ListAbscent a={a} abscent={abscent} /> 
+        <ButtonLast startTous ={AfficherTous} startPresent={AfficherPresent} startAbscent={AfficherAbscent} />
+        <ListEtudiant tous={tous} present={present} abscent={abscent} displayListAbscent={displayListAbscent} displayListTous={displayListTous} displayListPresent={displayListPresent} /> 
     </div>
   );
 }

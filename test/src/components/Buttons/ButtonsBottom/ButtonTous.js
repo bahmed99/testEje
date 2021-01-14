@@ -1,7 +1,7 @@
 import React from 'react'
 import './ButtonsBottom.css'; 
 
-function ButtonTous() {
+function ButtonTous(props) {
     return (
         <div>
             <button onClick={props.Start} className="btnend btnleft"> {props.text}</button>

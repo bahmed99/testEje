@@ -8,30 +8,10 @@
   margin-left: auto;
 }
 
-
-
-.btn {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 20px;
-}
-
-
-
-.last-container {
-  display: inline-flex;
-  border-radius: 4px;
-  margin-top: 30px;
-  
-  
-}
-
-
 h4 {
   color: white;
   font-size: 28px;
 }
-
 
 h5{
   background-color: #555;
