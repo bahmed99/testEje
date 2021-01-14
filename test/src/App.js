@@ -15,15 +15,12 @@ import AfficherNames from './components/AfficherNoms/AfficherNames';
 function App() {
 
   const nom=["Mouna","Ahmed","Farah","Oussema","Mehdi","Ali","Mohamed","Monji","Mounira","Jamel","Seif","Mariem"] ; 
-
   const [com,setCom]=useState(false) ; 
   const [names,setNames]=useState('') ; 
   const [present,setPresent]=useState([]) ; 
   const [abscent,setAbscent]=useState([]) ; 
   const [tous,setTous]=useState([]) ; 
   const [count,setCount]=useState(0); 
-
-  
   const [ok,setOk]=useState(''); 
   const [ok1,setOk1]=useState(''); 
   const [a,setA]=useState('none'); 
@@ -49,7 +46,6 @@ function App() {
       else {
         setOk1('none');
       }
-    console.log(present)
   }
 
   function SetAbscent() {
@@ -100,44 +96,14 @@ function AfficherPresent() {
   setT('none');}
   setP('contents')
 }
-let buttonp = document.getElementById("my-buttonp");
-let buttone = document.getElementById("my-buttone");
-let buttona = document.getElementById("my-buttona");
-function ChangeOpacityPresent(){
-  if(com)
-  buttonp.style.opacity=0.5 ; 
-}
-function ChangeOpacityPresent1(){
-  if(com)
-  buttonp.style.opacity=1 ; 
-}
-
-function ChangeOpacityExclu(){
-  if(com)
-  buttone.style.opacity=0.5 ; 
-}
-function ChangeOpacityExclu1(){
-  if(com)
-  buttone.style.opacity=1 ; 
-}
-
-function ChangeOpacityAbscent(){
-  if(com)
-  buttona.style.opacity=0.5 ; 
-}
-function ChangeOpacityAbscent1(){
-  if(com)
-  buttona.style.opacity=1 ; 
-}
-
   return (
     <div className="App">
         <div style={{display:ok1}}>
           <AfficherNames names={names} start ={Setnames} ok={ok}/>
           <div className="btn" > 
-            <ButtonAjouterPresent  text="Présent" com={com} disabled={!com} Start={SetPresent} onMouseOver={ChangeOpacityPresent} onMouseOut={ChangeOpacityPresent1} />
-            <ButtonAjouterExclu  text="Exclu" com={com} disabled={!com} Start={SetExclu} onMouseOver={ChangeOpacityExclu} onMouseOut={ChangeOpacityExclu1} />
-            <ButtonAjouterAbscent  text="Abscent" com={com} disabled={!com} Start={SetAbscent} onMouseOver={ChangeOpacityAbscent} onMouseOut={ChangeOpacityAbscent1} />
+            <ButtonAjouterPresent  text="Présent" com={com} disabled={!com} Start={SetPresent}/>
+            <ButtonAjouterExclu  text="Exclu" com={com} disabled={!com} Start={SetExclu}  />
+            <ButtonAjouterAbscent  text="Abscent" com={com} disabled={!com} Start={SetAbscent}  />
           </div>
         </div>
 
@@ -149,7 +115,7 @@ function ChangeOpacityAbscent1(){
         <ListTous t={t} tous={tous} />
         <ListPresent p={p} present={present} /> 
         <ListAbscent a={a} abscent={abscent} /> 
-  </div>
+    </div>
   );
 }
 export default App;
