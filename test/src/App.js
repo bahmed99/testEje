@@ -1,6 +1,16 @@
-
 import './App.css';
 import {useState} from 'react' ;
+import ButtonAbscent from './components/Buttons/ButtonsBottom/ButtonAbscent';
+import ButtonPresent from './components/Buttons/ButtonsBottom/ButtonPresent';
+import ButtonAjouterPresent from './components/Buttons/ButtonsAjouter/ButtonAjouterPresent';
+import ButtonAjouterExclu from './components/Buttons/ButtonsAjouter/ButtonAjouterExclu';
+import ButtonAjouterAbscent from './components/Buttons/ButtonsAjouter/ButtonAjouterAbscent';
+import ListPresent from './components/List/ListPresent';
+import ListTous from './components/List/ListTous';
+import ListAbscent from './components/List/ListAbscent';
+import AfficherNames from './components/AfficherNoms/AfficherNames';
+
+
 
 function App() {
 
@@ -28,7 +38,6 @@ function App() {
   }
 
   function SetPresent() {
-    
       present.unshift([names,'Present']);
       setPresent(present); 
       tous.unshift([names,'Present']);
@@ -40,11 +49,10 @@ function App() {
       else {
         setOk1('none');
       }
-    
+    console.log(present)
   }
 
   function SetAbscent() {
-    
       abscent.unshift([names,'Abscent']);
       setAbscent(abscent);
       tous.unshift([names,'Abscent']);
@@ -56,7 +64,6 @@ function App() {
         else {
           setOk1('none');
         }
-    
   }
 
   function SetExclu() {
@@ -69,22 +76,6 @@ function App() {
         else {
           setOk1('none');
         }
-  }
-
-  function List(props){
-    
-    return ( 
-      <div className="affichage">
-        <div className="container-affichage">
-          <div className="type">
-            <h3>{props.list[0]}</h3>
-          </div>
-          <div className="type">
-            <h5>{props.list[1]}</h5>
-          </div>
-        </div>
-    </div>
-    );
   }
 
 function AfficherTous() {
@@ -109,9 +100,9 @@ function AfficherPresent() {
   setT('none');}
   setP('contents')
 }
-var buttonp = document.getElementById("my-buttonp");
-var buttone = document.getElementById("my-buttone");
-var buttona = document.getElementById("my-buttona");
+let buttonp = document.getElementById("my-buttonp");
+let buttone = document.getElementById("my-buttone");
+let buttona = document.getElementById("my-buttona");
 function ChangeOpacityPresent(){
   if(com)
   buttonp.style.opacity=0.5 ; 
@@ -141,61 +132,24 @@ function ChangeOpacityAbscent1(){
 
   return (
     <div className="App">
-      <div className="container">
-        <div  className="scontainer" style={{display:ok1}}>
-          <div className="names">
-            <button onClick={Setnames} className="btncommencer" style={{display:ok}}>
-              <span>COMMENCER</span>
-            </button>
-            <h4>{names}</h4>
+        <div style={{display:ok1}}>
+          <AfficherNames names={names} start ={Setnames} ok={ok}/>
+          <div className="btn" > 
+            <ButtonAjouterPresent  text="Présent" com={com} disabled={!com} Start={SetPresent} onMouseOver={ChangeOpacityPresent} onMouseOut={ChangeOpacityPresent1} />
+            <ButtonAjouterExclu  text="Exclu" com={com} disabled={!com} Start={SetExclu} onMouseOver={ChangeOpacityExclu} onMouseOut={ChangeOpacityExclu1} />
+            <ButtonAjouterAbscent  text="Abscent" com={com} disabled={!com} Start={SetAbscent} onMouseOver={ChangeOpacityAbscent} onMouseOut={ChangeOpacityAbscent1} />
           </div>
-          <div className="btn" >
-            <button disabled={!com} onMouseOver={ChangeOpacityPresent} onMouseOut={ChangeOpacityPresent1} id="my-buttonp" style={{opacity: com ? 1 : 0.5 , cursor: com ? 'pointer': ''}} onClick ={SetPresent} className="btnp " >
-              <span>Présent</span>
-            </button>
-            <button disabled={!com} onMouseOver={ChangeOpacityExclu} onMouseOut={ChangeOpacityExclu1} id="my-buttone" style={{opacity: com ? 1 : 0.5 , cursor: com ? 'pointer': ''}} onClick ={SetExclu} className="btne">
-              <span>Exclu</span>
-            </button>
-            <button disabled={!com} onMouseOver={ChangeOpacityAbscent} onMouseOut={ChangeOpacityAbscent1} id="my-buttona" style={{opacity: com ? 1 : 0.5 , cursor: com ? 'pointer': ''}}  onClick ={SetAbscent} className="btna">
-              <span>Abscent</span>
-            </button>
-          </div>
-          </div>
-
-          <div className="last-container">
-            <button onClick={AfficherTous} className="btnend btnleft">
-              <span>TOUS</span>
-            </button>
-            <button onClick={AfficherAbscent} className="btnend btnmiddle">
-              <span>ABSCENT</span>
-            </button>
-            <button onClick={AfficherPresent} className="btnend btnright" >
-              <span>PRESENT</span>
-            </button>
-          </div>
-
-          <div style={{display:t}}>
-          {tous.map((tous,index) => 
-              <List list={tous} key={index}  />
-            )}
-          
-          </div>
-
-           <div style={{display:p}}>
-          {present.map((present,index) => 
-              <List list={present} key={index} />
-            )}
-          
-          </div>
-        
-          <div style={{display:a}}>
-          {abscent.map((abscent,index) => 
-              <List list={abscent} key={index} />
-            )}
-          </div> 
-          
         </div>
-    </div>
+
+        <div className="last-container">
+            <ButtonAbscent  text="TOUS" Start={AfficherTous} /> 
+            <ButtonAbscent  text="ABSCENT" Start={AfficherAbscent} /> 
+            <ButtonPresent  text="PRESENT" Start={AfficherPresent} /> 
+        </div>
+        <ListTous t={t} tous={tous} />
+        <ListPresent p={p} present={present} /> 
+        <ListAbscent a={a} abscent={abscent} /> 
+  </div>
   );
 }
 export default App;

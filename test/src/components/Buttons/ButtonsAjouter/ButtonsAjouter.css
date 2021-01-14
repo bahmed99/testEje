@@ -1,0 +1,25 @@
+.btnp {
+    color: white;  
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    height: 100px;
+    width: 120px;
+    background-color: #77b300; 
+    
+  }
+  .btne {
+    color: white;  
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    width: 120px;
+    height: 100px;
+    background-color: #f80;
+  }
+  .btna {
+    color: white;  
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    width: 120px;
+    height: 100px;
+    background-color: #c00;
+  }

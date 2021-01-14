@@ -1,0 +1,23 @@
+.affichage {
+    background-color: #5a1b3b;
+    padding: 10px;
+    margin: 20px;
+    position: relative;
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .container-affichage{
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .type{
+      width: 15%;
+      padding-right: 15px;
+      padding-left: 15px;
+      color: white;
+  }
+  

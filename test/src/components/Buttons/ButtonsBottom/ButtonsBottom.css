@@ -1,0 +1,38 @@
+.btnend {
+    font-size: 1rem;
+    color: #f50057;
+    background-color:#060606 ;
+    cursor: pointer;
+    padding: 14px;
+    border-radius: 4px;
+    border: 1px solid rgba(245, 0, 87, 0.5);
+    border-radius: 4px;
+    font-size: 15px;
+    font-style: italic;
+  }
+  .btnmiddle{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .btnmiddle:hover{
+    border-width: 2px;
+  } 
+  .btnright:hover{
+    border-width: 2px;
+  } 
+  .btnleft:hover{
+    border-width: 2px;
+  } 
+  
+  .btnright{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .btnleft{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
